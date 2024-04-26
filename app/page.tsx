@@ -17,6 +17,7 @@ function Home() {
   const [graphToggler, setGraphToggler] = useState("10")
   const [timeToggler, setTimeToggler] = useState('D');
   const [price, setPrice] = useState<string>("0")
+  const [flag, setFlag] = useState<boolean>(false)
   const priceRef = useRef<HTMLDivElement>(null);
   const priceChangeRef = useRef<HTMLDivElement>(null);
   const [priceLoadingState, setPriceLoading] = useState(true);
@@ -59,9 +60,13 @@ function Home() {
       }
 
       // if (priceRef.current) {
-        // priceRef.current.innerHTML = markPx;
-        setPrice(markPx)
+      //   priceRef.current.innerHTML = markPx;
       // }
+
+      if(!flag) {
+        setPrice(markPx)
+        setFlag(true)
+      }
     }
 
     return () => {
