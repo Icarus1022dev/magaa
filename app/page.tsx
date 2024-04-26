@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, memo  } from "react";
 import { Fade } from 'react-reveal';
 import CountUp from 'react-countup';
 //@ts-ignore
@@ -11,11 +11,12 @@ import ProfileSlider from "./components/ProfileSlider";
 import TradingViewWidget from "./components/TradingViewWidget";
 import CustomChart from './components/Chart'
 import SunShine from "./components/SunShine/SunShine";
+import PriceCountUp from './components/PriceCountUp'
 //@ts-ignore
-
-export default function Home() {
+function Home() {
   const [graphToggler, setGraphToggler] = useState("10")
   const [timeToggler, setTimeToggler] = useState('D');
+  const [price, setPrice] = useState<string>("0")
   const priceRef = useRef<HTMLDivElement>(null);
   const priceChangeRef = useRef<HTMLDivElement>(null);
   const [priceLoadingState, setPriceLoading] = useState(true);
@@ -57,9 +58,10 @@ export default function Home() {
         return;
       }
 
-      if (priceRef.current) {
-        priceRef.current.innerHTML = markPx;
-      }
+      // if (priceRef.current) {
+        // priceRef.current.innerHTML = markPx;
+        setPrice(markPx)
+      // }
     }
 
     return () => {
@@ -211,8 +213,11 @@ export default function Home() {
         <Fade bottom>
           <div className="flex flex-col 2xl:flex-row 2xl:items-end min-h-[117px] mb-[59px] mt-[24px] 2xl:mt-0">
             <h1 className="gradient-text text-[54px] font-american-x sm:text-[100px] leading-[86px] sm:leading-[116px] font-[400]">
-              <span className="text-[50px] font-american-x leading-[58px]">$</span><span ref={priceRef} ></span>
-
+              <span className="text-[50px] font-american-x leading-[58px]">$</span>
+              {/* <span ref={priceRef}></span> */}
+              {
+                price && <PriceCountUp price={price}  />
+              }
             </h1>
             <Fade right>
               <div className="pb-[18px] ml-[11px]">
@@ -298,4 +303,5 @@ export default function Home() {
   );
 }
 
+export default memo(Home)
 
