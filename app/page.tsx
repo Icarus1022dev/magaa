@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useRef, useState, memo  } from "react";
+import { useEffect, useRef, useState, memo } from "react";
 import Lottie from 'lottie-react'
 import CountUp from 'react-countup';
 //@ts-ignore
@@ -65,7 +65,7 @@ function Home() {
       //   priceRef.current.innerHTML = markPx;
       // }
 
-      if(!flag) {
+      if (!flag) {
         setPrice(markPx)
         setFlag(true)
       }
@@ -84,7 +84,9 @@ function Home() {
         <section className="bg-main relative" style={{ position: 'relative' }}>
           <SunShine />
           <Fade bottom>
-            <img src={"/assets/images/1.png"} />
+            {/* <div> */}
+            <img className="troImg" src={"/assets/images/1.png"} />
+            {/* </div> */}
           </Fade>
           <Fade right>
             <div className="magaa flex flex-col items-center justify-center gap-y-[36px] absolute right-[5%] sm:right-[15%] md:right-2 lg:right-[100px] 2xl:right-[280px] bottom-[40px] md:top-[170px] w-[70%]  xl:w-[500px] 2xl:w-[740px]">
@@ -206,7 +208,7 @@ function Home() {
           {/* <Roll >
             <CustomChart />
           </Roll> */}
-          <Lottie animationData={LottieChart} loop={true}/>
+          <Lottie animationData={LottieChart} loop={true} />
 
         </div>
       </section>
@@ -220,11 +222,11 @@ function Home() {
         </Fade>
         <Fade bottom>
           <div className="flex flex-col 2xl:flex-row 2xl:items-end min-h-[117px] mb-[59px] mt-[24px] 2xl:mt-0">
-            <h1 style={{maxWidth: "300px", width: "300px"}} className="gradient-text text-[54px] font-american-x sm:text-[100px] leading-[86px] sm:leading-[116px] font-[400]">
+            <h1 style={{ maxWidth: "300px", width: "300px" }} className="gradient-text text-[54px] font-american-x sm:text-[100px] leading-[86px] sm:leading-[116px] font-[400]">
               <span className="text-[50px] font-american-x leading-[58px]">$</span>
               {/* <span ref={priceRef}></span> */}
               {
-                flag && <PriceCountUp price={price}  />
+                flag && <PriceCountUp price={price} />
               }
             </h1>
             {/* <Fade bottom> */}
@@ -242,8 +244,8 @@ function Home() {
                 <h2 className="text-[#EEEEEE] text-[20px] leading-[30px] tracking-tighter font-[500]">SOL/USDC</h2>
               </div>
             </Fade>
-            
-              <div className="flex sm:flex-row items-end gap-x-[10px] 2xl:ml-[68px] pb-[18px]">
+
+            <div className="flex sm:flex-row items-end gap-x-[10px] 2xl:ml-[68px] pb-[18px]">
               <Fade bottom duration={1300}>
                 <button
                   onClick={() => setGraphToggler("10")}
@@ -277,8 +279,8 @@ function Home() {
                   }>
                   3d
                 </button>
-                </Fade>
-                <Fade bottom duration={2900}>   
+              </Fade>
+              <Fade bottom duration={2900}>
                 <button
                   onClick={() => setTimeToggler('W')}
                   className={`  ${timeToggler == 'W' ? 'radial-button-bg-time border-[#6CA3FF] text-[#EEEEEE]' : 'bg-transparent border-[#75849D] text-[#75849D]'}
@@ -286,8 +288,8 @@ function Home() {
                   }>
                   1w
                 </button>
-                </Fade>
-                <Fade bottom duration={3200}>   
+              </Fade>
+              <Fade bottom duration={3200}>
                 <button
                   onClick={() => setTimeToggler('M')}
                   className={`  ${timeToggler == 'M' ? 'radial-button-bg-time border-[#6CA3FF] text-[#EEEEEE]' : 'bg-transparent border-[#75849D] text-[#75849D]'}
@@ -295,9 +297,9 @@ function Home() {
                   }>
                   1m
                 </button>
-                </Fade>
+              </Fade>
 
-              </div>
+            </div>
             {/* </Fade> */}
           </div>
         </Fade>
@@ -309,11 +311,11 @@ function Home() {
 
         {/* <img src="/assets/images/chart-candle-sm.png" alt=""className="sm:hidden block w-[100%]" /> */}
         {/* <Fade left delay={500} collapse> */}
-          <div className="w-[100%] md:w-[70%] 2xl:w-[1140px]">
-            <div className="cus-smoothly">
-              <TradingViewWidget timeToggler={timeToggler} graphToggler={graphToggler} />
-            </div>
+        <div className="w-[100%] md:w-[70%] 2xl:w-[1140px]">
+          <div className="cus-smoothly">
+            <TradingViewWidget timeToggler={timeToggler} graphToggler={graphToggler} />
           </div>
+        </div>
         {/* </Fade> */}
 
         {/* <img src="/assets/images/chart-candle-sm.png" alt="" className="sm:hidden block" /> */}
