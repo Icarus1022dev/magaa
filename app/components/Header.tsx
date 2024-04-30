@@ -10,6 +10,7 @@ import { BsTwitterX } from "react-icons/bs";
 import { FaDiscord, FaTelegramPlane } from "react-icons/fa";
 //@ts-ignore
 import { CgClose } from 'react-icons/cg';
+import { Link } from 'react-scroll';
 
 
 
@@ -24,17 +25,17 @@ const Header = () => {
             <div className='relative px-[40px] lg:px-[90px] xl:px-[150px] 2xl:px-[240px] h-[218px] hidden md:flex gap-x-[30px] lg:gap-x-[40px]
               xl:gap-x-[80px] 2xl:gap-x-[90px] flex-row items-center justify-center text-[#75849D] text-[14px] lg:text-[16px] tracking-tighter
               leading-[20px] font-semibold'>
-                <a href="#" className='hover-effect'>About</a>
-                <a href="" className='hover-effect'>Tockenomics</a>
-                <a href="" className='hover-effect'>FAQ</a>
+                <Link to="about" spy={true} smooth={true} className='hover-effect'>About</Link>
+                <Link to="tockenomics" spy={true} smooth={true} className='hover-effect'>Tockenomics</Link>
+                <Link to="faq" spy={true} smooth={true} className='hover-effect'>FAQ</Link>
                 <a href="/" className="cursor-pointer">
                     <img src="/assets/images/avatar.png" style={{ marginTop: "15px", width: "150px", height: "150px", minWidth: "150px" }} className='relative bottom-[20px] w-[160px] lg:w-auto lg:h-auto' alt="Not THtere" />
 
 
                 </a>
-                <a href="" className='hover-effect'>CoimMarketCap</a>
-                <a href="" className='hover-effect'>CoimGecko</a>
-                <a href="" className='hover-effect'>Etherscan</a>
+                <a href="https://coinmarketcap.com/" target='_blank' className='hover-effect'>CoinMarketCap</a>
+                <a href="https://www.coingecko.com/" target='_blank' className='hover-effect'>CoinGecko</a>
+                <a href="https://etherscan.io/" target='_blank' className='hover-effect' target='_blank' >Etherscan</a>
 
                 <img className='absolute w-full lg:w-auto left-0  2xl:left-[14%] -top-[0px] -z-[1]' src="/assets/images/nav-logo-blur.png" alt="Not THtere" />
             </div>
@@ -71,7 +72,7 @@ const Header = () => {
                 <a href="">Tockenomics</a>
                 <a href="">FAQ</a>
                 <a href="">CoimMarketCap</a>
-                <a href="">CoimGecko</a>
+                <a href="https://www.coingecko.com/" target='_blank'>CoinGecko</a>
                 <a href="">Etherscan</a>
 
                 <CgClose className={`absolute left-6 top-8 text-[25px]`} onClick={handleSideBarClick} />

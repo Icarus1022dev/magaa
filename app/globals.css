@@ -134,6 +134,7 @@
 }
 
 .hover-effect:hover {
+  cursor: pointer;
   transform: scale(1.2);
   transition: transform .3s ease;
   color: rgb(177, 177, 177);

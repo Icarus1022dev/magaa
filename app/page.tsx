@@ -120,7 +120,7 @@ function Home() {
 
       {/* ABOUT SECTION */}
 
-      <section className="about relative min-h-[923px] flex items-start mt-[106px] sm:mt-[144px] pl-[20px] md:pl-[100px] xl:pl-[240px] overflow-hidden">
+      <section id="about" className="about relative min-h-[923px] flex items-start mt-[106px] sm:mt-[144px] pl-[20px] md:pl-[100px] xl:pl-[240px] overflow-hidden">
         <Fade right>
           <img src="/assets/images/bg-about.png" className="absolute hidden sm:block -right-[70%] md:-right-[40%] lg:right-0 top-[111px] max-w-[1440px] max-h-[785px] object-contain bg-no-repeat -z-10" alt="" />
           <img src="/assets/images/bg-about-sm.png" className="absolute block sm:hidden right-0 top-[111px] w-[100% ] max-h-[785px] object-cover bg-no-repeat -z-10" alt="" />
@@ -150,7 +150,7 @@ function Home() {
 
       {/* GRAPH SECTION */}
 
-      <section className="min-height-[900px]">
+      <section id="tockenomics" className="min-height-[900px]">
         <Fade bottom>
           <div className="pr-[50px] 2xl:pr-[258px] pl-[20px]">
             <Heading headingBottom="Tokenomics" headingTop="MAGAA" />
@@ -214,7 +214,7 @@ function Home() {
       </section>
 
       {/* CHART SECTION BOTTOM */}
-      <section className="pl-[20px] sm:pl-[100px] xl:pl-[236px] flex flex-col items-start mt-[100px] sm:mt-[195px] pr-[20px] 2xl:pr-0">
+      <section id="faq" className="pl-[20px] sm:pl-[100px] xl:pl-[236px] flex flex-col items-start mt-[100px] sm:mt-[195px] pr-[20px] 2xl:pr-0">
         <Fade bottom>
           <div>
             <Heading headingTop="DEXT" headingBottom="DEXtools" />
