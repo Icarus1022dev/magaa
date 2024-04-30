@@ -5,12 +5,12 @@ import HeaderLogo from '../lottie/logo.json'
 //@ts-ignore
 import { HiMiniBars3CenterLeft } from "react-icons/hi2";
 //@ts-ignore
+import { Link } from 'react-scroll';
 import { BsTwitterX } from "react-icons/bs";
 //@ts-ignore
 import { FaDiscord, FaTelegramPlane } from "react-icons/fa";
 //@ts-ignore
 import { CgClose } from 'react-icons/cg';
-import { Link } from 'react-scroll';
 
 
 
@@ -35,7 +35,7 @@ const Header = () => {
                 </a>
                 <a href="https://coinmarketcap.com/" target='_blank' className='hover-effect'>CoinMarketCap</a>
                 <a href="https://www.coingecko.com/" target='_blank' className='hover-effect'>CoinGecko</a>
-                <a href="https://etherscan.io/" target='_blank' className='hover-effect' target='_blank' >Etherscan</a>
+                <a href="https://etherscan.io/" target='_blank' className='hover-effect' >Etherscan</a>
 
                 <img className='absolute w-full lg:w-auto left-0  2xl:left-[14%] -top-[0px] -z-[1]' src="/assets/images/nav-logo-blur.png" alt="Not THtere" />
             </div>
