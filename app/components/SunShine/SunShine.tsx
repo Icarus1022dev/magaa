@@ -6,7 +6,7 @@ import './style.css'
 const SunShine = () => {
   return (
     <div className='sunCon'>
-      <Lottie style={{ opacity: 0.3 }} animationData={LottieRainBow} loop={true} />
+      <Lottie style={{ opacity: 0.3, zIndex: 1000 }} animationData={LottieRainBow} loop={true} />
     </div >
   )
 }

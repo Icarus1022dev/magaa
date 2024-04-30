@@ -128,6 +128,11 @@
   display: flex !important;
 }
 
+.hover-effect {
+  z-index: 1000000 !important;
+
+}
+
 .hover-effect:hover {
   transform: scale(1.2);
   transition: transform .3s ease;

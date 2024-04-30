@@ -28,7 +28,7 @@ const Header = () => {
                 <a href="" className='hover-effect'>Tockenomics</a>
                 <a href="" className='hover-effect'>FAQ</a>
                 <a href="/" className="cursor-pointer">
-                    <img src="/assets/images/avatar.png" style={{marginTop: "15px", width: "150px", height: "150px"}} className='relative bottom-[20px] w-[160px] lg:w-auto lg:h-auto' alt="Not THtere" />
+                    <img src="/assets/images/avatar.png" style={{ marginTop: "15px", width: "150px", height: "150px", minWidth: "150px" }} className='relative bottom-[20px] w-[160px] lg:w-auto lg:h-auto' alt="Not THtere" />
 
 
                 </a>
