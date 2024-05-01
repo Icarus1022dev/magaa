@@ -1,5 +1,5 @@
 'use client'
-import React, {useRef, memo } from 'react'
+import React, { memo } from 'react'
 import CountUp from 'react-countup'
 
 interface Props{
@@ -7,11 +7,10 @@ interface Props{
 }
 
 const PriceCountUp = (props: Props) => {
-  const priceRef = useRef()
+
   const {price} = props
-  console.log("PRICE", price)
   return(
-    <CountUp start={0.0} end={parseFloat(price)} decimals={1} duration={2} ref={priceRef} />
+    <CountUp start={0.0} end={parseFloat(price)} decimals={1} duration={2} />
   )
 }
 

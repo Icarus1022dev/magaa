@@ -1,8 +1,9 @@
 'use client'
 import { useEffect, useRef, useState, memo  } from "react";
-import { Fade } from 'react-reveal';
+import Lottie from 'lottie-react'
 import CountUp from 'react-countup';
 //@ts-ignore
+import { Fade } from 'react-reveal';
 import Heading from "./components/Heading";
 import { TbArrowDownRight, TbArrowUpRight } from "react-icons/tb";
 import { FaCircle } from "react-icons/fa";
@@ -12,6 +13,7 @@ import TradingViewWidget from "./components/TradingViewWidget";
 import CustomChart from './components/Chart'
 import SunShine from "./components/SunShine/SunShine";
 import PriceCountUp from './components/PriceCountUp'
+import LottieChart from './lottie/charts.json'
 //@ts-ignore
 function Home() {
   const [graphToggler, setGraphToggler] = useState("10")
@@ -72,9 +74,7 @@ function Home() {
     return () => {
       socket.close()
     }
-  }, [])
-
-  console.log("priceRef", priceRef.current?.innerText)
+  }, [flag])
 
   return (
     <div className="font-bold min-h-screen pb-[50px] sm:pb-[240px]">
@@ -119,11 +119,11 @@ function Home() {
       {/* ABOUT SECTION */}
 
       <section className="about relative min-h-[923px] flex items-start mt-[106px] sm:mt-[144px] pl-[20px] md:pl-[100px] xl:pl-[240px] overflow-hidden">
-        <Fade bottom>
+        <Fade right>
           <img src="/assets/images/bg-about.png" className="absolute hidden sm:block -right-[70%] md:-right-[40%] lg:right-0 top-[111px] max-w-[1440px] max-h-[785px] object-contain bg-no-repeat -z-10" alt="" />
           <img src="/assets/images/bg-about-sm.png" className="absolute block sm:hidden right-0 top-[111px] w-[100% ] max-h-[785px] object-cover bg-no-repeat -z-10" alt="" />
         </Fade>
-        <Fade right>
+        <Fade bottom>
           <div className="pr-[20px] pt-2 sm:pt-0">
             <Heading headingTop="MAGAA" headingBottom="About" />
 
@@ -192,7 +192,7 @@ function Home() {
               </div>
             </Fade>
           </div>
-          <Fade right>
+          {/* <Fade right>
             <img
               src="/assets/images/token-img-chart.png"
               className="xl:w-[50%] token-img hidden sm:block mt-[50px] 2xl:mt-0"
@@ -202,8 +202,11 @@ function Home() {
               src="/assets/images/token-chart-sm.png"
               className="w-[95%] sm:hidden block mt-[52px]"
             />
-          </Fade>
-          {/* <CustomChart /> */}
+          </Fade> */}
+          {/* <Roll >
+            <CustomChart />
+          </Roll> */}
+          <Lottie animationData={LottieChart} loop={true}/>
 
         </div>
       </section>
@@ -217,14 +220,15 @@ function Home() {
         </Fade>
         <Fade bottom>
           <div className="flex flex-col 2xl:flex-row 2xl:items-end min-h-[117px] mb-[59px] mt-[24px] 2xl:mt-0">
-            <h1 className="gradient-text text-[54px] font-american-x sm:text-[100px] leading-[86px] sm:leading-[116px] font-[400]">
+            <h1 style={{maxWidth: "300px", width: "300px"}} className="gradient-text text-[54px] font-american-x sm:text-[100px] leading-[86px] sm:leading-[116px] font-[400]">
               <span className="text-[50px] font-american-x leading-[58px]">$</span>
               {/* <span ref={priceRef}></span> */}
               {
-                price && <PriceCountUp price={price}  />
+                flag && <PriceCountUp price={price}  />
               }
             </h1>
-            <Fade right>
+            {/* <Fade bottom> */}
+            <Fade bottom duration={1000}>
               <div className="pb-[18px] ml-[11px]">
                 {
                   !priceLoadingState ? <span className="text-[#E23F49] text-[14px] leading-[20px] font-[400] inline-flex items-center">
@@ -237,20 +241,24 @@ function Home() {
                 }
                 <h2 className="text-[#EEEEEE] text-[20px] leading-[30px] tracking-tighter font-[500]">SOL/USDC</h2>
               </div>
-
+            </Fade>
+            
               <div className="flex sm:flex-row items-end gap-x-[10px] 2xl:ml-[68px] pb-[18px]">
+              <Fade bottom duration={1300}>
                 <button
                   onClick={() => setGraphToggler("10")}
                   className={` border-[1.5px] ${graphToggler == "10" ? 'radial-button-bg border-[#EE703A]' : 'bg-transparent border-[#75849D]'} rounded-[24px] h-[40px] px-[12px] sm:px-[15px]`}>
                   <img src="/assets/images/button1.png" />
                 </button>
-
+              </Fade>
+              <Fade bottom duration={1700}>
                 <button
                   onClick={() => setGraphToggler("1")}
                   className={` border-[1.5px] ${graphToggler == "1" ? 'radial-button-bg border-[#EE703A]' : 'bg-transparent border-[#75849D]'} rounded-[24px] h-[40px] px-[12px] sm:px-[15px] mr-[17px] sm:mr-[76px]`}>
                   <img src="/assets/images/button2.png" />
                 </button>
-
+              </Fade>
+              <Fade bottom duration={2100}>
                 <button
                   onClick={() => setTimeToggler('D')}
                   className={`  ${timeToggler == 'D' ? 'radial-button-bg-time border-[#6CA3FF] text-[#EEEEEE]' : 'bg-transparent border-[#75849D] text-[#75849D]'}
@@ -258,6 +266,9 @@ function Home() {
                   }>
                   24h
                 </button>
+              </Fade>
+
+              <Fade bottom duration={2500}>
 
                 <button
                   onClick={() => setTimeToggler('3D')}
@@ -266,7 +277,8 @@ function Home() {
                   }>
                   3d
                 </button>
-
+                </Fade>
+                <Fade bottom duration={2900}>   
                 <button
                   onClick={() => setTimeToggler('W')}
                   className={`  ${timeToggler == 'W' ? 'radial-button-bg-time border-[#6CA3FF] text-[#EEEEEE]' : 'bg-transparent border-[#75849D] text-[#75849D]'}
@@ -274,7 +286,8 @@ function Home() {
                   }>
                   1w
                 </button>
-
+                </Fade>
+                <Fade bottom duration={3200}>   
                 <button
                   onClick={() => setTimeToggler('M')}
                   className={`  ${timeToggler == 'M' ? 'radial-button-bg-time border-[#6CA3FF] text-[#EEEEEE]' : 'bg-transparent border-[#75849D] text-[#75849D]'}
@@ -282,9 +295,10 @@ function Home() {
                   }>
                   1m
                 </button>
+                </Fade>
 
               </div>
-            </Fade>
+            {/* </Fade> */}
           </div>
         </Fade>
 
@@ -294,12 +308,13 @@ function Home() {
         } */}
 
         {/* <img src="/assets/images/chart-candle-sm.png" alt=""className="sm:hidden block w-[100%]" /> */}
-        <Fade left>
+        {/* <Fade left delay={500} collapse> */}
           <div className="w-[100%] md:w-[70%] 2xl:w-[1140px]">
-
-            <TradingViewWidget timeToggler={timeToggler} graphToggler={graphToggler} />
+            <div className="cus-smoothly">
+              <TradingViewWidget timeToggler={timeToggler} graphToggler={graphToggler} />
+            </div>
           </div>
-        </Fade>
+        {/* </Fade> */}
 
         {/* <img src="/assets/images/chart-candle-sm.png" alt="" className="sm:hidden block" /> */}
       </section>

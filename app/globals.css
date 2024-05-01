@@ -142,6 +142,21 @@
   transition: transform 3s ease, bottom 3s ease;
 }
 
+.cus-smoothly{
+  position: relative;
+  animation-duration: 2s;
+  animation-delay: 3s;
+  animation-name: cus-anim;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+  
+@keyframes cus-anim {
+  0%   { width: 0%; opacity: 0.6;}
+  100% { width: 100%; opacity: 1;}
+}
+
 /* .statistics::after {
   z-index: -1;
   content: "";

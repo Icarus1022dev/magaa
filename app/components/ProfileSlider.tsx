@@ -1,15 +1,15 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react'
+import CountUp from 'react-countup/';
 import millify from "millify";
 //@ts-ignore
 import { TbArrowDownRight, TbArrowUpRight } from 'react-icons/tb'
 //@ts-ignore
+import Fade from 'react-reveal/Fade'
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 import Slider, { Settings } from 'react-slick';
-import Fade from 'react-reveal/Fade'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-//@ts-ignore
 import { motion } from 'framer-motion';
 import axios from 'axios';
 interface TokenData {
@@ -23,56 +23,56 @@ const data = [
     {
         name: '$MAGAA',
         img: '/assets/images/slider/p1.png',
-        worth: '$23.45M',
+        worth: 23.45,
         percenntage: +3.95,
         graph: '/assets/images/slider/stat1.png'
     },
     {
         name: '$TREMP',
         img: '/assets/images/slider/p2.png',
-        worth: '$171.88M',
+        worth: 171.88,
         percenntage: +2.33,
         graph: '/assets/images/slider/stat2.png'
     },
     {
         name: '$MAGAA',
         img: '/assets/images/slider/p1.png',
-        worth: '$23.45M',
+        worth: 23.45,
         percenntage: -0.23,
         graph: '/assets/images/slider/stat3.png'
     },
     {
         name: '$MAGAA',
         img: '/assets/images/slider/p3.png',
-        worth: '$23.45M',
+        worth: 23.45,
         percenntage: +3.95,
         graph: '/assets/images/slider/stat1.png'
     },
     {
         name: '$MAGAA',
         img: '/assets/images/slider/p3.png',
-        worth: '$23.45M',
+        worth: 23.45,
         percenntage: +3.95,
         graph: '/assets/images/slider/stat1.png'
     },
     {
         name: '$MAGAA',
         img: '/assets/images/slider/p3.png',
-        worth: '$23.45M',
+        worth: 23.45,
         percenntage: +3.95,
         graph: '/assets/images/slider/stat1.png'
     },
     {
         name: '$MAGAA',
         img: '/assets/images/slider/p3.png',
-        worth: '$23.45M',
+        worth: 23.45,
         percenntage: +3.95,
         graph: '/assets/images/slider/stat1.png'
     },
     {
         name: '$MAGAA',
         img: '/assets/images/slider/p3.png',
-        worth: '$23.45M',
+        worth: 23.45,
         percenntage: +3.95,
         graph: '/assets/images/slider/stat1.png'
     },
@@ -111,7 +111,7 @@ const ProfileSlider = () => {
                     tData.push({
                         name: _tData.baseToken.name,
                         img: _tData.info.imageUrl,
-                        worth: `$${millify(_tData?.volume?.h6 || 0)}`,
+                        worth: millify(_tData?.volume?.h6 || 0),
                         percenntage: _tData.priceChange.h6,
                         graph: '/assets/images/slider/stat1.png'
                     })
@@ -216,7 +216,9 @@ const ProfileSlider = () => {
                                                 </div>
 
                                                 <span className="text-[#E2EBFB] font-[400] text-[30px] leading-[30px] tracking-tight mb-[13px] font-american-x">
-                                                    {item.worth}
+                                                    $
+                                                    <CountUp start={0.0} end={parseFloat(item.worth)} decimals={2} duration={2} />
+                                                    M
                                                 </span>
                                                 {
                                                     item.percenntage < 0 ? <span className="text-[#E23F49] text-[14px] leading-[20px] font-[400] inline-flex items-center">
